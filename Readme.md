@@ -1,3 +1,20 @@
+# Unknown's Unlocker
+A fork of jhowkNx's "Heist Control v2" with my own additions added.
+
+### ⚠ Warning ⚠
+Unlocking too much stuff at once **MAY** result in your character getting corrupted!
+
+## Installation Instructions
+1. Press the green button and hit "Download ZIP"
+2. Put the .lua file in ``C:\Users\NAME_HERE\AppData\Roaming\PopstarDevs\2Take1Menu\scripts.``
+3. Enable "Trusted Mode" in the Scripts section within the menu.
+4. Press ``Enter`` on the .lua file in the same section.
+5. Back out and go to the ``Script Features`` section and enjoy!
+
+
+
+
+
 # Heist Control (v2)
 
 ## Heist Control is a LUA Script... Made just to work with the 2TAKE1 Menu. 
