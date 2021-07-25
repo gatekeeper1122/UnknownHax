@@ -699,6 +699,29 @@ local LS_TUNERS_DLC_IT = {
 
 }
 
+local UNLCK_FCIOU = {
+    {"GANGOPS_FM_MISSION_PROG", 2147483647},
+    {"GANGOPS_FLOW_MISSION_PROG", 2147483647}
+}
+local UNLCK_CHVTP = {
+    {"H3_BOARD_DIALOGUE0", -1},
+    {"H3_BOARD_DIALOGUE1", -1},
+    {"H3_BOARD_DIALOGUE2", -1},
+    {"H3_VEHICLESUSED", -1}
+}
+local UNLCK_BGHTO = {
+    {"AWD_FM_DM_WINS", 50}
+}
+local UNLCK_CPPSL = {
+    {"CAS_HEIST_NOTS", -1},
+    {"CAS_HEIST_FLOW", -1}
+}
+local UNLCK_IESVW = {
+    {"AT_FLOW_IMPEXP_NUM", 32}
+}
+
+
+
 -- Trusted Mode is required
 if not menu.is_trusted_mode_enabled() then
     menu.notify("Unknown's Unlocker requires Trusted Mode to be activated", "Unknown's Unlocker", 8, 2552550)
@@ -922,6 +945,33 @@ menu.add_feature("Unlock Packie McReary", "action", UKN_UNLKS.id, function()
         stat_set_int(UNLCK_PATRICK[i][1], true, UNLCK_PATRICK[i][2])
         end
 end)
+
+menu.add_feature("Unlock All Outfits in Facility", "action", UKN_UNLKS.id, function()
+    for i = 1, #UNLCK_FCIOU do
+        stat_set_int(UNLCK_FCIOU[i][1], true, UNLCK_FCIOU[i][2])
+    end
+end)
+menu.add_feature("Unlock Burning Heart Tattoo", "action", UKN_UNLKS.id, function()
+    for i = 1, #UNLCK_BGHTO do
+        stat_set_int(UNLCK_BGHTO[i][1], true, UNLCK_BGHTO[i][2])
+    end
+end)
+menu.add_feature("Unlock Casino Heist Vehicle Trade Price", "action", UKN_UNLKS.id, function()
+    for i = 1, #UNLCK_CHVTP do
+        stat_set_int(UNLCK_CHVTP[i][1], true, UNLCK_CHVTP[i][2])
+    end
+end)
+menu.add_feature("Unlock All IMP/EXP Special Vehicle Work", "action", UKN_UNLKS.id, function()
+    for i = 1, #UNLCK_IESVW do
+        stat_set_int(UNLCK_IESVW[i][1], true, UNLCK_IESVW[i][2])
+    end
+end)
+menu.add_feature("Unlock Ceramic Pistol", "action", UKN_UNLKS.id, function()
+    for i = 1, #UNLCK_CPPSL do
+        stat_set_int(UNLCK_CPPSL[i][1], true, UNLCK_CPPSL[i][2])
+    end
+end)
+
 
 
 
