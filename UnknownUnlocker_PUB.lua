@@ -1,5 +1,13 @@
+--          Welcome to Unknown's Unlocker
+
+-- Requires Trusted Mode to be turned ON
 -- Do not contact me if you tried to edit/change anything and the script stopped working.
--- Developed by "jhowkNx" from 2TAKE1 Menu | A fork by UnknownModder
+
+-- This project is a fork of the following script, with some of my own additions added:
+-- https://github.com/jhowkNx/Heist-Control-v2
+
+
+
 
 -- Functions
 local function stat_set_float(hash, prefix, value, save)
@@ -721,7 +729,6 @@ local UNLCK_IESVW = {
 }
 
 
-
 -- Trusted Mode is required
 if not menu.is_trusted_mode_enabled() then
     menu.notify("Unknown's Unlocker requires Trusted Mode to be activated", "Unknown's Unlocker", 8, 2552550)
@@ -737,6 +744,8 @@ local UKN_MISHES = menu.add_feature("Missions / Heists", "parent", UKN_MAIN.id)
 local UKN_UNLKS = menu.add_feature("Unlockables", "parent", UKN_MAIN.id)
 local UKN_INV = menu.add_feature("Inventory", "parent", UKN_MAIN.id)
 local UKN_BIZ = menu.add_feature("Businesses", "parent", UKN_MAIN.id)
+local UKN_HELP = menu.add_feature("Helpers", "parent", UKN_MAIN.id)
+local UKN_CLTB = menu.add_feature("Collectables", "parent", UKN_MAIN.id)
 local UKN_MISC = menu.add_feature("Miscellaneous", "parent", UKN_MAIN.id)
 
 menu.add_feature("About Unknown's Unlocker", "action", UKN_MAIN.id, function()
@@ -748,7 +757,7 @@ end)
 
 -- Missions / Heists
 menu.add_feature("Skip Lamar Missions to the finale", "action", UKN_MISHES.id, function()
-    menu.notify("Done, switch sessions.", "Unknown's Unlocker", 5, 780000)
+    menu.notify("Done, switch sessions.", "Unknown's Unlocker", 4, 257818)
     for i = 1, #LMAR_UNLK_B do
         stat_set_bool(LMAR_UNLK_B[i][1], true, LMAR_UNLK_B[i][2])
     for i = 2, #LMAR_UNLK_I do
@@ -757,7 +766,7 @@ menu.add_feature("Skip Lamar Missions to the finale", "action", UKN_MISHES.id, f
     end
 end)
 menu.add_feature("Skip Cayo Perico to the finale", "action", UKN_MISHES.id, function()
-    menu.notify("Done, switch sessions.", "Unknown's Unlocker", 4, 257818)
+    menu.notify("Done, exit Kosatka and then enter it again.", "Unknown's Unlocker", 4, 257818)
     for i = 1, #CYPRC_UNLK_I do
         stat_set_int(CYPRC_UNLK_I[i][1], true, CYPRC_UNLK_I[i][2])
     end
@@ -765,11 +774,15 @@ end)
 
 
 
+-- Individual Unlocks
+--local UKN_AWARDLIST = menu.add_feature("Awards", "parent", UKN_UNLKS.id)
+
+
 
 -- Unlockables
 local UKNHEIST_AWARDS = menu.add_feature("Heist Awards", "parent", UKN_UNLKS.id)
-menu.add_feature("Unlock High-End Apartments Heist Awards", "action", UKNHEIST_AWARDS.id, function()
-    menu.notify("Apartment Awards Unlocked!", "Unknown's Unlocker", 4, 257818)
+menu.add_feature("Unlock High-End Apartment Heist Awards", "action", UKNHEIST_AWARDS.id, function()
+    menu.notify("High-End Apartment Awards Unlocked!", "Unknown's Unlocker", 4, 257818)
     for i = 1, #APRTMNT_AWD_I do
         stat_set_int(APRTMNT_AWD_I[i][1], true, APRTMNT_AWD_I[i][2])
         stat_set_int(APRTMNT_AWD_I[i][1], false, APRTMNT_AWD_I[i][2])
@@ -784,11 +797,11 @@ menu.add_feature("Unlock Doomsday Heist Awards", "action", UKNHEIST_AWARDS.id, f
     for i = 1, #DD_AWARDS_I do
         stat_set_int(DD_AWARDS_I[i][1], true, DD_AWARDS_I[i][2])
         stat_set_int(DD_AWARDS_I[i][1], false, DD_AWARDS_I[i][2])
-    for i = 1, #DD_AWARDS_B do
+    end
+    for i = 2, #DD_AWARDS_B do
         stat_set_bool(DD_AWARDS_B[i][1], true, DD_AWARDS_B[i][2])
         stat_set_bool(DD_AWARDS_B[i][1], false, DD_AWARDS_B[i][2])
     end
-end
 end)
 menu.add_feature("Unlock All Doomsday Heist", "action", UKNHEIST_AWARDS.id, function()
     menu.notify("Call Lester and ask to cancel the Doomsday Heist (Three Times)\nDo this only once", "Unknown's Unlocker", 6, 780000)
@@ -800,7 +813,7 @@ menu.add_feature("Unlock Cayo Perico Awards", "action", UKNHEIST_AWARDS.id, func
     menu.notify("Cayo Perico Awards Unlocked!", "Unknown's Unlocker", 5, 257818)
     for i = 1, #CP_AWRD_IT do
         stat_set_int(CP_AWRD_IT[i][1], true, CP_AWRD_IT[i][2])
-        for i = 1, #CP_AWRD_BL do
+    for i = 2, #CP_AWRD_BL do
         stat_set_bool(CP_AWRD_BL[i][1], true, CP_AWRD_BL[i][2])
         end
     end
@@ -833,6 +846,7 @@ menu.add_feature("Unlock Bunker Awards", "action", UKNBNKR_AWARDS.id, function()
     end
 end)
 
+
 local UKNNCLUB_AWARDS = menu.add_feature("Nightclub Awards", "parent", UKN_UNLKS.id)    
 menu.add_feature("Unlock Nightclub Awards", "action", UKNNCLUB_AWARDS.id, function()
     menu.notify("Nightclub Awards Unlocked", "Unknown's Unlocker", 4, 257818)
@@ -845,6 +859,7 @@ menu.add_feature("Unlock Nightclub Awards", "action", UKNNCLUB_AWARDS.id, functi
     end
 end)
 
+
 local UKNTNR_AWARDS = menu.add_feature("LS Tuner Awards", "parent", UKN_UNLKS.id)    
 menu.add_feature("Unlock Awards", "action", UKNTNR_AWARDS.id, function()
     menu.notify("Tuners Awards Unlocked", "Unknown's Unlocker", 4, 257818)
@@ -855,13 +870,58 @@ menu.add_feature("Unlock Awards", "action", UKNTNR_AWARDS.id, function()
         end
     end
 end)
-menu.add_feature("Unlock Vehicle Challenge & Trade Price", "action", UKNTNR_AWARDS.id, function()
-    menu.notify("Successfully Unlocked Challenge & Trade Price", "Unknown's Unlocker", 4, 257818)
+menu.add_feature("Unlock Vehicle Challenge", "action", UKNTNR_AWARDS.id, function()
+    menu.notify("Successfully Unlocked Challenge", "Unknown's Unlocker", 4, 257818)
     for i = 1, #LS_TUNERS_PRIZE_BL do
         stat_set_bool(LS_TUNERS_PRIZE_BL[i][1], true, LS_TUNERS_PRIZE_BL[i][2])
     for i = 2, #LS_TUNERS_PRICE_IT do
         stat_set_int(LS_TUNERS_PRICE_IT[i][1], true, LS_TUNERS_PRICE_IT[i][2])
         end
+    end
+end)
+menu.add_feature("Unlock Drip Feed Vehicles", "toggle", UKNTNR_AWARDS.id, function(bit)
+    menu.notify("You can leave this option active if you want to play with the new cars in missions, heists and free mode\n\nThe cars are available for purchase!", "Unknown's Unlocker", 5, 3578712200220)
+    while bit.on do 
+    script.set_global_i(262145 + 30494, 1)
+    script.set_global_i(262145 + 30498, 1)
+    script.set_global_i(262145 + 30499, 1)
+    script.set_global_i(262145 + 30500, 1)
+    script.set_global_i(262145 + 30488, 1)
+    script.set_global_i(262145 + 30486, 1)
+    script.set_global_i(262145 + 30493, 1)
+    system.wait(1)
+        if not bit.on then return end
+    end
+end)
+menu.add_feature("Unlock Drip Feed Outfits", "toggle", UKNTNR_AWARDS.id, function(hk)
+    menu.notify("Sprunk Bodysuit\nCola Parachute Bag\nSprunk Parachute Bag\nHalloween Parachute Bag\nLos Santos Customs tee-shirt\nKnuckleduster Tee\nRampage Tee", "Unknown's Unlocker", 15, 3578712200220)
+    menu.notify("Several items have been unlocked:\n\nPenitentiary Coverall outfit (delayed)\nBanshee Logo black & blue t-shirt\nBorn X Raised black, blue and white t-shirt\nCircoloco Tee\nBaseball Bat Tee\nWasted! Tee\nRockstar Games Typeface Tee\nSprunk x eCola", "Unknown's Unlocker", 15, 3578712200220)
+    while hk.on do
+        script.set_global_i(262145 + 30657, 1)
+        script.set_global_i(262145 + 30658, 1)
+        script.set_global_i(262145 + 30659, 1)
+        script.set_global_i(262145 + 30660, 1)
+        script.set_global_i(262145 + 30661, 1)
+        script.set_global_i(262145 + 30662, 1)
+        script.set_global_i(262145 + 30663, 1)
+        script.set_global_i(262145 + 30664, 1)
+        script.set_global_i(262145 + 30665, 1)
+        script.set_global_i(262145 + 30666, 1)
+        script.set_global_i(262145 + 30667, 1)
+        script.set_global_i(262145 + 30668, 1)
+        script.set_global_i(262145 + 30669, 1)
+        script.set_global_i(262145 + 30670, 1)
+        script.set_global_i(262145 + 30671, 1)
+        script.set_global_i(262145 + 30672, 1)
+        script.set_global_i(262145 + 30673, 1)
+        script.set_global_i(262145 + 30674, 1)
+        script.set_global_i(262145 + 30675, 1)
+        script.set_global_i(262145 + 30676, 1)
+        script.set_global_i(262145 + 30677, 1)
+        script.set_global_i(262145 + 30678, 1)
+        script.set_global_i(262145 + 30679, 1)
+    if not hk.on then return end
+    system.wait(1)
     end
 end)
 
@@ -878,7 +938,7 @@ end)
 
 
 menu.add_feature("Unlock XMAS Liveries", "action", UKN_UNLKS.id, function()
-    menu.notify("All Liveries Unlocked", "Unknown's Unlocker", 4, 257818)
+    menu.notify("All XMAS Liveries Unlocked", "Unknown's Unlocker", 4, 257818)
     for i = 1, #UNLK_XMAS do
         stat_set_int(UNLK_XMAS[i][1], false, UNLK_XMAS[i][2])
     end
@@ -943,33 +1003,180 @@ menu.add_feature("Unlock Packie McReary", "action", UKN_UNLKS.id, function()
     menu.notify("NOTE: it is experimental, it may not work correctly.", "Unknown's Unlocker", 4, 780000)
     for i = 1, #UNLCK_PATRICK do
         stat_set_int(UNLCK_PATRICK[i][1], true, UNLCK_PATRICK[i][2])
-        end
+    end
 end)
-
 menu.add_feature("Unlock All Outfits in Facility", "action", UKN_UNLKS.id, function()
     for i = 1, #UNLCK_FCIOU do
         stat_set_int(UNLCK_FCIOU[i][1], true, UNLCK_FCIOU[i][2])
     end
+    menu.notify("Unlocked all Facility outfits!", "Unknown's Unlocker", 4, 257818)
 end)
 menu.add_feature("Unlock Burning Heart Tattoo", "action", UKN_UNLKS.id, function()
     for i = 1, #UNLCK_BGHTO do
         stat_set_int(UNLCK_BGHTO[i][1], true, UNLCK_BGHTO[i][2])
     end
+    menu.notify("Unlocked Burning Heart Tattoo!", "Unknown's Unlocker", 4, 257818)
 end)
-menu.add_feature("Unlock Casino Heist Vehicle Trade Price", "action", UKN_UNLKS.id, function()
+menu.add_feature("Unlock Paragon R", "action", UKN_UNLKS.id, function()
     for i = 1, #UNLCK_CHVTP do
         stat_set_int(UNLCK_CHVTP[i][1], true, UNLCK_CHVTP[i][2])
     end
+    menu.notify("Unlocked Paragon R!", "Unknown's Unlocker", 4, 257818)
 end)
 menu.add_feature("Unlock All IMP/EXP Special Vehicle Work", "action", UKN_UNLKS.id, function()
     for i = 1, #UNLCK_IESVW do
         stat_set_int(UNLCK_IESVW[i][1], true, UNLCK_IESVW[i][2])
     end
+    menu.notify("Unlocked all Import/Export Special Vehicle Work!", "Unknown's Unlocker", 4, 257818)
 end)
 menu.add_feature("Unlock Ceramic Pistol", "action", UKN_UNLKS.id, function()
     for i = 1, #UNLCK_CPPSL do
         stat_set_int(UNLCK_CPPSL[i][1], true, UNLCK_CPPSL[i][2])
     end
+    menu.notify("Unlocked Ceramic Pistol!", "Unknown's Unlocker", 4, 257818)
+end)
+menu.add_feature("Unlock Cayo Perico Unlockables", "action", UKN_UNLKS.id, function()
+    menu.notify("These items will be in the store unlocked for purchase\n\nT-shirts\nJackets\nSweaters\nCaps\nGlow glasses\nGlow necklaces\nSpecial glasses\nDJ T-shirts", "Unknown's Unlocker", 5, 3578712200220)
+        -- T-shirts/Jackets/Sweaters
+        script.set_global_i(262145 + 29688, 1)
+        script.set_global_i(262145 + 29689, 1)
+        script.set_global_i(262145 + 29690, 1)
+        script.set_global_i(262145 + 29691, 1)
+        script.set_global_i(262145 + 29692, 1)
+        script.set_global_i(262145 + 29693, 1)
+        script.set_global_i(262145 + 29694, 1)
+        script.set_global_i(262145 + 29695, 1)
+        script.set_global_i(262145 + 29696, 1)
+        script.set_global_i(262145 + 29697, 1)
+        script.set_global_i(262145 + 29698, 1)
+        script.set_global_i(262145 + 29699, 1)
+        script.set_global_i(262145 + 29700, 1)
+        script.set_global_i(262145 + 29701, 1)
+        script.set_global_i(262145 + 29702, 1)
+        script.set_global_i(262145 + 29703, 1)
+        script.set_global_i(262145 + 29704, 1)
+        script.set_global_i(262145 + 29705, 1)
+        script.set_global_i(262145 + 29706, 1)
+        script.set_global_i(262145 + 29707, 1)
+        -- Shorts
+        script.set_global_i(262145 + 29708, 1)
+        script.set_global_i(262145 + 29709, 1)
+        script.set_global_i(262145 + 29710, 1)
+        script.set_global_i(262145 + 29711, 1)
+        -- Caps
+        script.set_global_i(262145 + 29712, 1)
+        script.set_global_i(262145 + 29713, 1)
+        script.set_global_i(262145 + 29714, 1)
+        script.set_global_i(262145 + 29715, 1)
+        script.set_global_i(262145 + 29716, 1)
+        -- Glow bracelets
+        script.set_global_i(262145 + 29717, 1)
+        script.set_global_i(262145 + 29718, 1)
+        script.set_global_i(262145 + 29719, 1)
+        script.set_global_i(262145 + 29720, 1)
+        script.set_global_i(262145 + 29721, 1)
+        script.set_global_i(262145 + 29722, 1)
+        script.set_global_i(262145 + 29723, 1)
+        script.set_global_i(262145 + 29724, 1)
+        script.set_global_i(262145 + 29725, 1)
+        script.set_global_i(262145 + 29726, 1)
+        script.set_global_i(262145 + 29727, 1)
+        script.set_global_i(262145 + 29728, 1)
+        -- Glow glasses
+        script.set_global_i(262145 + 29729, 1)
+        script.set_global_i(262145 + 29730, 1)
+        script.set_global_i(262145 + 29731, 1)
+        script.set_global_i(262145 + 29732, 1)
+        script.set_global_i(262145 + 29733, 1)
+        script.set_global_i(262145 + 29734, 1)
+        script.set_global_i(262145 + 29735, 1)
+        script.set_global_i(262145 + 29736, 1)
+        script.set_global_i(262145 + 29737, 1)
+        script.set_global_i(262145 + 29738, 1)
+        script.set_global_i(262145 + 29739, 1)
+        script.set_global_i(262145 + 29740, 1)
+        -- Glow necklaces
+        script.set_global_i(262145 + 29741, 1)
+        script.set_global_i(262145 + 29742, 1)
+        script.set_global_i(262145 + 29743, 1)
+        script.set_global_i(262145 + 29744, 1)
+        script.set_global_i(262145 + 29745, 1)
+        script.set_global_i(262145 + 29746, 1)
+        script.set_global_i(262145 + 29747, 1)
+        script.set_global_i(262145 + 29748, 1)
+        script.set_global_i(262145 + 29749, 1)
+        script.set_global_i(262145 + 29750, 1)
+        script.set_global_i(262145 + 29751, 1)
+        script.set_global_i(262145 + 29752, 1)
+        script.set_global_i(262145 + 29753, 1)
+        script.set_global_i(262145 + 29754, 1)
+        script.set_global_i(262145 + 29755, 1)
+        script.set_global_i(262145 + 29756, 1)
+        -- Full head masks
+        script.set_global_i(262145 + 29761, 1)
+        script.set_global_i(262145 + 29762, 1)
+        script.set_global_i(262145 + 29763, 1)
+        script.set_global_i(262145 + 29764, 1)
+        script.set_global_i(262145 + 29765, 1)
+        script.set_global_i(262145 + 29766, 1)
+        script.set_global_i(262145 + 29767, 1)
+        script.set_global_i(262145 + 29768, 1)
+        script.set_global_i(262145 + 29769, 1)
+        script.set_global_i(262145 + 29770, 1)
+        script.set_global_i(262145 + 29771, 1)
+        script.set_global_i(262145 + 29772, 1)
+        script.set_global_i(262145 + 29773, 1)
+        script.set_global_i(262145 + 29774, 1)
+        script.set_global_i(262145 + 29775, 1)
+        script.set_global_i(262145 + 29776, 1)
+        script.set_global_i(262145 + 29777, 1)
+        script.set_global_i(262145 + 29778, 1)
+        script.set_global_i(262145 + 29779, 1)
+        script.set_global_i(262145 + 29780, 1)
+        -- Special glasses
+        script.set_global_i(262145 + 30345, 1)
+        script.set_global_i(262145 + 30346, 1)
+        script.set_global_i(262145 + 30347, 1)
+        script.set_global_i(262145 + 30348, 1)
+        script.set_global_i(262145 + 30349, 1)
+        script.set_global_i(262145 + 30350, 1)
+        script.set_global_i(262145 + 30351, 1)
+        script.set_global_i(262145 + 30352, 1)
+        script.set_global_i(262145 + 30353, 1)
+        script.set_global_i(262145 + 30354, 1)
+        script.set_global_i(262145 + 30355, 1)
+        script.set_global_i(262145 + 30356, 1)
+        script.set_global_i(262145 + 30357, 1)
+        script.set_global_i(262145 + 30358, 1)
+        script.set_global_i(262145 + 30359, 1)
+        script.set_global_i(262145 + 30360, 1)
+        script.set_global_i(262145 + 30361, 1)
+        script.set_global_i(262145 + 30362, 1)
+        script.set_global_i(262145 + 30363, 1)
+        script.set_global_i(262145 + 30364, 1)
+        script.set_global_i(262145 + 30365, 1)
+        script.set_global_i(262145 + 30366, 1)
+        script.set_global_i(262145 + 30367, 1)
+        script.set_global_i(262145 + 30368, 1)
+        script.set_global_i(262145 + 30369, 1)
+        script.set_global_i(262145 + 30370, 1)
+        script.set_global_i(262145 + 30371, 1)
+        script.set_global_i(262145 + 30372, 1)
+        script.set_global_i(262145 + 30373, 1)
+        script.set_global_i(262145 + 30374, 1)
+        script.set_global_i(262145 + 30375, 1)
+        script.set_global_i(262145 + 30376, 1)
+        script.set_global_i(262145 + 30377, 1)
+        script.set_global_i(262145 + 30378, 1)
+        script.set_global_i(262145 + 30379, 1)
+        script.set_global_i(262145 + 30380, 1)
+        -- DJ's T-shirts
+        script.set_global_i(262145 + 30390, 1)
+        script.set_global_i(262145 + 30391, 1)
+        script.set_global_i(262145 + 30392, 1)
+        script.set_global_i(262145 + 30393, 1)
+        script.set_global_i(262145 + 30394, 1)
+        script.set_global_i(262145 + 30395, 1)
 end)
 
 
@@ -1060,6 +1267,118 @@ menu.add_feature("Fill Clubhouse with clutter", "action", UKN_BIZ.id, function()
 
     menu.notify("Filled your Clubhouse with clutter! (Do a sell mission to activate)", "Unknown's Unlocker", 4, 257818)
 end)
+
+
+
+
+-- Helpers
+local UKN_HELPWCHL = menu.add_feature("Weapon Challenges", "parent", UKN_HELP.id)
+menu.add_feature("The frozen ped can be used for all challenges!", "action", UKN_HELPWCHL.id)
+menu.add_feature("Spawn Frozen Ped", "action", UKN_HELPWCHL.id, function()
+    local coords = player.get_player_coords(player.player_id())
+    local model = 0xE7A963D9 --a_m_y_beach_03
+
+    streaming.request_model(model)
+    while (not streaming.has_model_loaded(model)) do
+        system.wait(10)
+    end
+
+    local ped = ped.create_ped(26, model, v3(coords.x - 2, coords.y, coords.z -1), 0, true, false)
+
+    network.request_control_of_entity(ped)
+    entity.freeze_entity(ped, true)
+end)
+
+
+local UKN_HELPSRKL = menu.add_feature("Serial Killer", "parent", UKN_HELP.id)
+menu.add_feature("Clue 1 - Bloody Handprint", "action", UKN_HELPSRKL.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-678.9984, 5797.6851, 17.3309))
+end)
+menu.add_feature("Clue 2 - Machete", "action", UKN_HELPSRKL.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(1901.4042, 4911.5479, 48.6951))
+end)
+menu.add_feature("Clue 3 - Severed Hand", "action", UKN_HELPSRKL.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(1111.7750, 3142.0457, 38.4241))
+end)
+menu.add_feature("Clue 4 - Message", "action", UKN_HELPSRKL.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-136.5509, 1912.8038, 197.2982))
+end)
+
+local UKN_HELPSRKLC = menu.add_feature("Clue 5 - Multiple Locations", "parent", UKN_HELPSRKL.id)
+menu.add_feature("Clue 5 - Black Van (1)", "action", UKN_HELPSRKLC.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(2576.0391, 1251.7494, 43.6099))
+    menu.notify("The LS Slasher will appear from 7PM-5AM, Kill him! (GTA$ 50,000 Reward)", "Unknown's Unlocker", 4, 257818)
+end)
+menu.add_feature("Clue 5 - Black Van (2)", "action", UKN_HELPSRKLC.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(2903.4150, 3644.0413, 43.8774))
+    menu.notify("The LS Slasher will appear from 7PM-5AM, Kill him! (GTA$ 50,000 Reward)", "Unknown's Unlocker", 4, 257818)
+end)
+menu.add_feature("Clue 5 - Black Van (3)", "action", UKN_HELPSRKLC.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(2432.3904, 5846.0757, 58.8891))
+    menu.notify("The LS Slasher will appear from 7PM-5AM, Kill him! (GTA$ 50,000 Reward)", "Unknown's Unlocker", 4, 257818)
+end)
+menu.add_feature("Clue 5 - Black Van (4)", "action", UKN_HELPSRKLC.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-1567.880, 4424.6104, 7.2154))
+    menu.notify("The LS Slasher will appear from 7PM-5AM, Kill him! (GTA$ 50,000 Reward)", "Unknown's Unlocker", 4, 257818)
+end)
+menu.add_feature("Clue 5 - Black Van (5)", "action", UKN_HELPSRKLC.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-1715.793, 2618.7686, 2.9409))
+    menu.notify("The LS Slasher will appear from 7PM-5AM, Kill him! (GTA$ 50,000 Reward)", "Unknown's Unlocker", 4, 257818)
+end)
+
+
+
+
+--Collectables | TO DO
+--[[local UKN_PLCR = menu.add_feature("Playing Cards", "parent", UKN_CLTB.id)
+menu.add_feature("Playing Card #1", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(1992.183, 3046.28, 47.125))
+end)
+menu.add_feature("Playing Card #2", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(120.38, -1297.669, 28.705))
+end)
+menu.add_feature("Playing Card #3", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(79.293, 3704.578, 40.945))
+end)
+menu.add_feature("Playing Card #4", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(2937.738, 5325.846, 100.176))
+end)
+menu.add_feature("Playing Card #5", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(727.153, 4189.818, 40.476))
+end)
+menu.add_feature("Playing Card #6", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-103.14, 369.008, 112.267))
+end)
+menu.add_feature("Playing Card #7", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(99.959, 6619.539, 32.314))
+end)
+menu.add_feature("Playing Card #8", "action", UKN_PLCR.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-282.6689, 6226.274, 31.3554))
+end)--]]
+
+
+
+
+local UKN_MDIS = menu.add_feature("Media Sticks", "parent", UKN_CLTB.id)
+menu.add_feature("CircoLoco Record - Black EP", "action", UKN_MDIS.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-2172.050, 1159.195, -24.372))
+end)
+menu.add_feature("CircoLoco Record - Blue EP", "action", UKN_MDIS.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(955.299, 48.904, 112.553))
+end)
+menu.add_feature("CircoLoco Record - Violet EP", "action", UKN_MDIS.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-1618.841, -3010.627, -75.205))
+end)
+menu.add_feature("CircoLoco Record - Green EP", "action", UKN_MDIS.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(2726.694, -387.484, -48.993))
+    menu.notify("You now unlocked the Circoloco Tee & Media!", "UnknownHax", 5, 3578712200220)
+end)
+menu.add_feature("Kenny's Backyard Boogie", "action", UKN_MDIS.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-2163.025, 1083.473, -24.362))
+end)
+
+
+
 
 
 
