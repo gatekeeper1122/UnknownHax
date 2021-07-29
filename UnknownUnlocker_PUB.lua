@@ -711,11 +711,20 @@ local UNLCK_FCIOU = {
     {"GANGOPS_FM_MISSION_PROG", 2147483647},
     {"GANGOPS_FLOW_MISSION_PROG", 2147483647}
 }
-local UNLCK_CHVTP = {
-    {"H3_BOARD_DIALOGUE0", -1},
-    {"H3_BOARD_DIALOGUE1", -1},
-    {"H3_BOARD_DIALOGUE2", -1},
-    {"H3_VEHICLESUSED", -1}
+local UNLCK_PARGR_I = {
+    {"VCM_STORY_PROGRESS", -1},
+    {"VCM_FLOW_PROGRESS", -1}
+}
+local UNLCK_PARGR_B = {
+    {"CASINOPSTAT_BOOL0", true},
+    {"CASINOPSTAT_BOOL1", true},
+    {"VCM_FLOW_CS_RSC_SEEN", true},
+    {"VCM_FLOW_CS_BWL_SEEN", true},
+    {"VCM_FLOW_CS_MTG_SEEN", true},
+    {"VCM_FLOW_CS_OIL_SEEN", true},
+    {"VCM_FLOW_CS_DEF_SEEN", true},
+    {"VCM_FLOW_CS_FIN_SEEN", true},
+    {"CAS_VEHICLE_REWARD", false}
 }
 local UNLCK_BGHTO = {
     {"AWD_FM_DM_WINS", 50}
@@ -1017,12 +1026,15 @@ menu.add_feature("Unlock Burning Heart Tattoo", "action", UKN_UNLKS.id, function
     end
     menu.notify("Unlocked Burning Heart Tattoo!", "Unknown's Unlocker", 4, 257818)
 end)
-menu.add_feature("Unlock Paragon R", "action", UKN_UNLKS.id, function()
-    for i = 1, #UNLCK_CHVTP do
-        stat_set_int(UNLCK_CHVTP[i][1], true, UNLCK_CHVTP[i][2])
+--[[menu.add_feature("Unlock Paragon R", "action", UKN_UNLKS.id, function()
+    for i = 1, #UNLCK_PARGR_I do
+        stat_set_int(UNLCK_PARGR_I[i][1], true, UNLCK_PARGR_I[i][2])
+    end
+    for i = 2, #UNLCK_PARGR_B do
+        stat_set_bool(UNLCK_PARGR_B[i][1], true, UNLCK_PARGR_B[i][2])
     end
     menu.notify("Unlocked Paragon R!", "Unknown's Unlocker", 4, 257818)
-end)
+end)--]]
 menu.add_feature("Unlock All IMP/EXP Special Vehicle Work", "action", UKN_UNLKS.id, function()
     for i = 1, #UNLCK_IESVW do
         stat_set_int(UNLCK_IESVW[i][1], true, UNLCK_IESVW[i][2])
@@ -1373,11 +1385,20 @@ menu.add_feature("CircoLoco Record - Green EP", "action", UKN_MDIS.id, function(
     entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(2726.694, -387.484, -48.993))
     menu.notify("You now unlocked the Circoloco Tee & Media!", "UnknownHax", 5, 3578712200220)
 end)
-menu.add_feature("Kenny's Backyard Boogie", "action", UKN_MDIS.id, function()
+
+local UKN_KBBL = menu.add_feature("Kenny's Backyard Boogie Locations", "parent", UKN_MDIS.id)
+menu.add_feature("Kenny's Backyard Boogie - #1", "action", UKN_KBBL.id, function()
     entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-2163.025, 1083.473, -24.362))
 end)
-
-
+menu.add_feature("Kenny's Backyard Boogie - #2", "action", UKN_KBBL.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-2180.532, 1082.276, -24.367))
+end)
+menu.add_feature("Kenny's Backyard Boogie - #3", "action", UKN_KBBL.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-2162.992, 1089.790, -24.363))
+end)
+menu.add_feature("Kenny's Backyard Boogie - #4", "action", UKN_KBBL.id, function()
+    entity.set_entity_coords_no_offset(player.get_player_ped(player.player_id()), v3(-2162.770, 1115.913, -24.371))
+end)
 
 
 
