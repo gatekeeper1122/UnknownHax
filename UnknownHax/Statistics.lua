@@ -128,6 +128,11 @@ CASINO_HEIST_NO_NPC_CUT = { -- Removes the npc crew cut
     {"H3OPT_CREWDRIVER", 6},
     {"H3OPT_CREWHACKER", 6}
 }
+YACHT_MISSIONS = {
+    {"YACHT_MISSION_PROG", 0},
+    {"YACHT_MISSION_FLOW", 21845},
+    {"CASINO_DECORATION_GIFT_1", -1}
+}
 
 
 
@@ -379,6 +384,128 @@ CASINO_HEIST_AWARDS_INT = {
     {"H3_BOARD_DIALOGUE2", -1},
     {"H3_VEHICLESUSED", -1}
 }
+ARENA_WAR_AWARDS_INT = {   
+    --[[{"ARN_BS_TRINKET_TICKERS", -1},
+    {"ARN_BS_TRINKET_SAVED", -1},
+    {"AWD_WATCH_YOUR_STEP", 50},
+    {"AWD_TOWER_OFFENSE", 50},
+    {"AWD_READY_FOR_WAR", 50},
+    {"AWD_THROUGH_A_LENS", 50},
+    {"AWD_SPINNER", 50},
+    {"AWD_YOUMEANBOOBYTRAPS", 50},
+    {"AWD_MASTER_BANDITO", 50},
+    {"AWD_SITTING_DUCK", 50},
+    {"AWD_CROWDPARTICIPATION", 50},
+    {"AWD_KILL_OR_BE_KILLED", 50},
+    {"AWD_MASSIVE_SHUNT", 50},
+    {"AWD_YOURE_OUTTA_HERE", 200},
+    {"AWD_WEVE_GOT_ONE", 50},
+    {"AWD_ARENA_WAGEWORKER", 1000000},
+    {"AWD_TIME_SERVED", 1000},
+    {"AWD_TOP_SCORE", 55000},
+    {"AWD_CAREER_WINNER", 1000},
+    {"ARENAWARS_SP", 209},
+    {"ARENAWARS_SKILL_LEVEL", 20},
+    {"ARENAWARS_SP_LIFETIME", 209},
+    {"ARENAWARS_AP_TIER", 1000},
+    {"ARENAWARS_AP_LIFETIME", 47551850},
+    {"ARENAWARS_CARRER_UNLK", 44},
+    {"ARN_W_THEME_SCIFI", 1000},
+    {"ARN_W_THEME_APOC", 1000},
+    {"ARN_W_THEME_CONS", 1000},
+    {"ARN_W_PASS_THE_BOMB", 1000},
+    {"ARN_W_DETONATION", 1000},
+    {"ARN_W_ARCADE_RACE", 1000},
+    {"ARN_W_CTF", 1000},
+    {"ARN_W_TAG_TEAM", 1000},
+    {"ARN_W_DESTR_DERBY", 1000},
+    {"ARN_W_CARNAGE", 1000},
+    {"ARN_W_MONSTER_JAM", 1000},
+    {"ARN_W_GAMES_MASTERS", 1000},
+    {"ARN_L_PASS_THE_BOMB", 500},
+    {"ARN_L_DETONATION", 500},
+    {"ARN_L_ARCADE_RACE", 500},
+    {"ARN_L_CTF", 500},
+    {"ARN_L_TAG_TEAM", 500},
+    {"ARN_L_DESTR_DERBY", 500},
+    {"ARN_L_CARNAGE", 500},
+    {"ARN_L_MONSTER_JAM", 500},
+    {"ARN_L_GAMES_MASTERS", 500},
+    {"NUMBER_OF_CHAMP_BOUGHT", 1000},
+    {"ARN_SPECTATOR_KILLS", 1000},
+    {"ARN_LIFETIME_KILLS", 1000},
+    {"ARN_LIFETIME_DEATHS", 500},
+    {"ARENAWARS_CARRER_WINS", 1000},
+    {"ARENAWARS_CARRER_WINT", 1000},
+    {"ARENAWARS_MATCHES_PLYD", 1000},
+    {"ARENAWARS_MATCHES_PLYDT", 1000},
+    {"ARN_SPEC_BOX_TIME_MS", 86400000},
+    {"ARN_SPECTATOR_DRONE", 1000},
+    {"ARN_SPECTATOR_CAMS", 1000},
+    {"ARN_SMOKE", 1000},
+    {"ARN_DRINK", 1000},
+    {"ARN_VEH_MONSTER", 31000},
+    {"ARN_VEH_MONSTER", 41000},
+    {"ARN_VEH_MONSTER", 51000},
+    {"ARN_VEH_CERBERUS", 1000},
+    {"ARN_VEH_CERBERUS2", 1000},
+    {"ARN_VEH_CERBERUS3", 1000},
+    {"ARN_VEH_BRUISER", 1000},
+    {"ARN_VEH_BRUISER2", 1000},
+    {"ARN_VEH_BRUISER3", 1000},
+    {"ARN_VEH_SLAMVAN4", 1000},
+    {"ARN_VEH_SLAMVAN5", 1000},
+    {"ARN_VEH_SLAMVAN6", 1000},
+    {"ARN_VEH_BRUTUS", 1000},
+    {"ARN_VEH_BRUTUS2", 1000},
+    {"ARN_VEH_BRUTUS3", 1000},
+    {"ARN_VEH_SCARAB", 1000},
+    {"ARN_VEH_SCARAB2", 1000},
+    {"ARN_VEH_SCARAB3", 1000},
+    {"ARN_VEH_DOMINATOR4", 1000},
+    {"ARN_VEH_DOMINATOR5", 1000},
+    {"ARN_VEH_DOMINATOR6", 1000},
+    {"ARN_VEH_IMPALER2", 1000},
+    {"ARN_VEH_IMPALER3", 1000},
+    {"ARN_VEH_IMPALER4", 1000},
+    {"ARN_VEH_ISSI4", 1000},
+    {"ARN_VEH_ISSI5", 1000},
+    {"ARN_VEH_ISSI", 61000},
+    {"ARN_VEH_IMPERATOR", 1000},
+    {"ARN_VEH_IMPERATOR2", 1000},
+    {"ARN_VEH_IMPERATOR3", 1000},
+    {"ARN_VEH_ZR380", 1000},
+    {"ARN_VEH_ZR3802", 1000},
+    {"ARN_VEH_ZR3803", 1000},
+    {"ARN_VEH_DEATHBIKE", 1000},
+    {"ARN_VEH_DEATHBIKE2", 1000},
+    {"ARN_VEH_DEATHBIKE3", 1000}--]]
+}
+ARENA_WAR_AWARDS_BOOL = { -- $525,000 Reward in total
+    {"AWD_UNSTOPPABLE", true}, -- Unstoppable
+    {"AWD_CONTACT_SPORT", true}, -- Contact Sports
+    {"AWD_PEGASUS", true}, -- Pegasus
+    {"AWD_BEGINNER", true}, -- New Kid ($2500 Reward)
+    {"AWD_FIELD_FILLER", true}, -- Field-Filler ($5000 Reward)
+    {"AWD_ARMCHAIR_RACER", true}, -- Armchair Racer ($7500 Reward)
+    {"AWD_LEARNER", true}, -- Learner ($10,000 Reward)
+    {"AWD_SUNDAY_DRIVER", true}, -- Gifted Amateur ($12,500 Reward)
+    {"AWD_THE_ROOKIE", true}, -- The Rookie ($15,000 Reward) 
+    {"AWD_BUMP_AND_RUN", true}, -- Bump And Run ($17,500 Reward)
+    {"AWD_GEAR_HEAD", true}, -- Gear-Head ($20,000 Reward)
+    {"AWD_DOOR_SLAMMER", true}, -- Pinball ($22,500 Reward)
+    {"AWD_HOT_LAP", true}, -- Semi-Pro ($25,000 Reward)
+    {"AWD_ARENA_AMATEUR", true}, -- Arena Vet ($27,500 Reward)
+    {"AWD_PAINT_TRADER", true}, -- Paint Trader ($30,000 Reward)
+    {"AWD_SHUNTER", true}, -- Shunter ($32,500 Reward)
+    {"AWD_JOCK", true}, -- Jock ($35,000 Reward)
+    {"AWD_WARRIOR", true}, -- Wrecking Ball ($37,500 Reward)
+    {"AWD_T_BONE", true}, -- First in Field ($40,000 Reward)
+    {"AWD_MAYHEM", true}, -- Gladiator ($42,500 Reward)
+    {"AWD_WRECKER", true}, -- Ring Master ($45,000 Reward)
+    {"AWD_CRASH_COURSE", true}, -- Arena Warrior ($47,500 Reward)
+    {"AWD_ARENA_LEGEND", true} -- Arena Legend ($50,000 Reward + Bonus Vehicle)
+}
 
 
 -- Unlockable Clothing
@@ -393,7 +520,7 @@ DNT_CRSS_LINE = { -- Unlocks the 'Do Not Cross The Line' Tee
 
 -- Unlockable Vehicles
 LS_TUNER_PRIZE_INT = {
-    {"CARMEET_PV_CHLLGE_PRGRSS", 3},
+    {"CARMEET_PV_CHLLGE_PRGRSS", 3}, -- You may need to change this manually depending on the challenge (do the value -1)
     {"CARMEET_PV_CHLLGE_POXIS", -1}
 }
 LS_TUNER_PRIZE_BOOL = {
@@ -425,6 +552,9 @@ UNLK_CHRISTMAS_LIVERIES = {
     {"MPPLY_XMASLIVERIES19", 2147483647},
     {"MPPLY_XMASLIVERIES20", 2147483647}
 }
+
+-- Other unlocks
+
 
 
 -- Inventory
